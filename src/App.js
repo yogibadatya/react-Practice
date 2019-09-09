@@ -1,5 +1,6 @@
 import React from 'react';
-import {Form,Container ,Row,Col,Button ,InputGroup ,FormControl} from 'react-bootstrap'
+// import {Form,Container ,Row,Col,Button ,InputGroup ,FormControl} from 'react-bootstrap'
+import {Form ,Button} from 'react-bootstrap'
 //import Header from './components/Header';
 //import MainContent from './components/MainContent';
 //import Footer from './components/Footer';
@@ -7,6 +8,9 @@ import {Form,Container ,Row,Col,Button ,InputGroup ,FormControl} from 'react-boo
 //import ContactCard from './components/ContactCard'
 import './App.css';
 //import DisplayName from './components/DisplayName';
+import SignUp from './components/SignUp'
+// import singnUpData from './components/singUpData'
+import signUpData from './components/singUpData';
 
 /* function App() {
   return (
@@ -128,7 +132,7 @@ function App(){
 }
 */
 
-class App extends React.Component {
+/*class App extends React.Component {
   
   constructor() {
       super()
@@ -160,7 +164,7 @@ class App extends React.Component {
           return {
             data : this.state.data
           }
-      })*/
+      })
   }
   
   render() {
@@ -283,7 +287,7 @@ class App extends React.Component {
       </div>
     )  
   }
-}
+}*/
 /*
   <h4 >Username : <input type="text" name="username" data-index ={0} value={this.state.data[0]} 
         onChange={this.handlechange} /> </h4>
@@ -302,113 +306,87 @@ class App extends React.Component {
         <hr/>
         { JSON.stringify(this.state.data , null , ' ') }
 */
-/*
-              class App extends React.Component {
-                constructor() {
-                    super()
-                    this.state = {
-                        isLoggedIn: false
-                    }
-                    this.handleClick = this.handleClick.bind(this)
-                }
-                
-                handleClick() {
-                    this.setState(prevState => {
-                        return {
-                            isLoggedIn: !prevState.isLoggedIn
-                        }
-                    })
-                }
-                
-                render() {   
-                    let buttonText = this.state.isLoggedIn ? "LOG OUT" : "LOG IN"
-                    let displayText = this.state.isLoggedIn ? "Logged in" : "Logged out"
-                    return (
-                        <div>
-                            <button onClick={this.handleClick}>{buttonText}</button>
-                            <h1>{displayText}</h1>
-                        </div>
-                    )
-                }
-            }
-            
-*/
-/*
-function App(){
-  return(
-    
-    <Form>
-      <link
-  rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-  crossorigin="anonymous"
-/>
-  
-  <InputGroup className="mb-3">
-    <InputGroup.Prepend>
-      <InputGroup.Text id="inputGroup-sizing-default">Username</InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl
-      aria-label="Default"
-      aria-describedby="inputGroup-sizing-default"
-    />
-     
-  </InputGroup>
-  <InputGroup className="mb-3">
-    <InputGroup.Prepend>
-      <InputGroup.Text id="inputGroup-sizing-default">Name</InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl
-      aria-label="Default"
-      aria-describedby="inputGroup-sizing-default"
-    />
-     
-  </InputGroup>
-  <InputGroup className="mb-3">
-    <InputGroup.Prepend>
-      <InputGroup.Text id="inputGroup-sizing-default">Age</InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl
-      aria-label="Default"
-      aria-describedby="inputGroup-sizing-default"
-    />
-     
-  </InputGroup>
-  <InputGroup className="mb-3">
-    <InputGroup.Prepend>
-      <InputGroup.Text id="inputGroup-sizing-default">Email</InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl
-      aria-label="Default"
-      aria-describedby="inputGroup-sizing-default"
-    />
-     
-  </InputGroup>
-  <InputGroup className="mb-3">
-    <InputGroup.Prepend>
-      <InputGroup.Text id="inputGroup-sizing-default">Gender</InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl
-      aria-label="Default"
-      aria-describedby="inputGroup-sizing-default"
-    />
-     
-  </InputGroup>
-  <InputGroup className="mb-3">
-    <InputGroup.Prepend>
-      <InputGroup.Text id="inputGroup-sizing-default">Phone</InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl
-      aria-label="Default"
-      aria-describedby="inputGroup-sizing-default"
-    />
-     
-  </InputGroup>
 
- 
-</Form>
+  class App extends React.Component {
+  
+    constructor() {
+        super()
+        this.state = { data : signUpData }
+        this.handleClick = this.handleClick.bind(this)
+        this.handlechange = this.handlechange.bind(this)
+    }
+    handlechange(id,name,value){
+      console.log("data",this.state);
+      //  let formdata = JSON.stringify(this.state.data);
+       let formdata = this.state.data;
+
+       //var formArray = formdata.map( obj =>{ var sabji ={}; sabji[obj.id] = id ; return obj })
+       var formArray = formdata.map(obj =>{ 
+
+        if(obj.id === id) {
+          obj.data = value; 
+          console.log("sssssssssss",obj, value);  
+        }
+
+        //  var rObj = {}; 
+        //  rObj[id] = obj.id;
+          
+          return obj;  
+        });
+       //  formdata[e] = v.target;
+       console.log("index",formdata);
+       console.log("dataaaaa",formArray)
+      //  console.log("iddd",id)
+     
+  
+       
+    //  const formComponent= formdata.map(id=formdata.id)
+    // //const val = r.target.value
+      this.setState(prevState => {
+            return {
+                data :  signUpData 
+            }
+        })
+    
+   
+
+    }
+    
+    handleClick() {
+        //console.log("ddddddddddddddd",this.state);
+      
+        console.log("eeee",this.state.data )
+        /*
+        this.setState(prevState => {
+            return {
+              data : this.state.data
+            }
+        })*/
+    }
+
+
+    
+    render() {
+   const signUpComponent = this.state.data.map(signup => < SignUp key={signup.id} id={signup.id} label = {signup.label} data={signup.data} onChange={this.handlechange}/>)
+
+  return(
+    <div>
+        <link
+    rel="stylesheet"
+    href="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossOrigin="anonymous"
+  />
+   <Form>
+      {signUpComponent}
+      <Button variant="primary" onClick={this.handleClick}
+    >Change the details</Button>
+     </Form>
+     <pre>
+       {JSON.stringify(this.state.data, null, ' ')}
+     </pre>
+    </div>
   )
-}
-*/
+  }
+  }
 export default App;
